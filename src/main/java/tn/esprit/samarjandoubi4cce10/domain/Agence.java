@@ -25,4 +25,7 @@ public class Agence {
     String telephone;
   @OneToMany (mappedBy ="agence")
   Set<Vehicule> vehicules = new HashSet<>();
+
+  @OneToMany (mappedBy = "agence")
+    Set <Employe>  employes = new HashSet<>();
 }

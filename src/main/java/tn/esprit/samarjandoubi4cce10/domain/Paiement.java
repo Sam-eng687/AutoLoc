@@ -1,9 +1,6 @@
 package tn.esprit.samarjandoubi4cce10.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -23,4 +20,8 @@ public class Paiement {
     BigDecimal montant;
     LocalDate datePaiement;
     ModePaiement modePaiement;
+
+    @ManyToOne
+    @JoinColumn(name = "id_contrat")
+    private Contrat contrat;
 }

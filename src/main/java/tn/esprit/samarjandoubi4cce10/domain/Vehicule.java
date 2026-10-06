@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -30,5 +31,7 @@ public class Vehicule {
     private Agence agence;
     @ManyToMany
     Set<Equipement> Equipements;
+    @OneToMany (mappedBy = "vehicule")
+    Set<Reservation> reservations = new HashSet<>();
 
 }

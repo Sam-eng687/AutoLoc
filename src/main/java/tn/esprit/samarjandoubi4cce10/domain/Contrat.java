@@ -1,15 +1,13 @@
 package tn.esprit.samarjandoubi4cce10.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.cglib.core.Local;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +22,10 @@ public class Contrat {
     LocalDate dateSignature;
     BigDecimal montantTotal;
     boolean valide;
+
+    @OneToOne (mappedBy = "contrat")
+    private Reservation reservation;
+
+    @OneToMany (mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Paiement> paiements;
 }
