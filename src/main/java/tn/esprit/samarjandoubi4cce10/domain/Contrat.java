@@ -27,5 +27,6 @@ public class Contrat {
     private Reservation reservation;
 
     @OneToMany (mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     List<Paiement> paiements;
 }
