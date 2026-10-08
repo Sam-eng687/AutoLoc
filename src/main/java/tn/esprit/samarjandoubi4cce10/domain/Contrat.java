@@ -7,8 +7,11 @@ import org.springframework.cglib.core.Local;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,7 +29,12 @@ public class Contrat {
     @OneToOne (mappedBy = "contrat")
     private Reservation reservation;
 
+    @OneToOne (fetch = FetchType.LAZY)
+    Reservation res;
+
+
+
     @OneToMany (mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    List<Paiement> paiements;
+    Set<Paiement> paiements= new HashSet<>();
 }
