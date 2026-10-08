@@ -30,7 +30,7 @@ public class Vehicule {
     @ManyToOne
     private Agence agence;
     @ManyToMany
-    Set<Equipement> Equipements;
+    Set<Equipement> equipements;
     @OneToMany (mappedBy = "vehicule")
     Set<Reservation> reservations = new HashSet<>();
 

@@ -3,7 +3,6 @@ package tn.esprit.samarjandoubi4cce10.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 

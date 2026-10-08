@@ -3,12 +3,10 @@ package tn.esprit.samarjandoubi4cce10.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.cglib.core.Local;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Builder
