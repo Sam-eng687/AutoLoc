@@ -1,0 +1,14 @@
+package tn.esprit.samarjandoubi4cce10.service;
+
+import tn.esprit.samarjandoubi4cce10.domain.Client;
+
+
+import java.util.List;
+
+public interface IClientService {
+    Client create (Client client);
+    Client findById (Long id);
+    List<Client> findAll();
+    void deleteById (Long id);
+    Client update(Client cl);
+}

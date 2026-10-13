@@ -1,8 +1,6 @@
 package tn.esprit.samarjandoubi4cce10.service.impls;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.samarjandoubi4cce10.domain.Vehicule;
 import tn.esprit.samarjandoubi4cce10.repository.IVehiculeRepository;
