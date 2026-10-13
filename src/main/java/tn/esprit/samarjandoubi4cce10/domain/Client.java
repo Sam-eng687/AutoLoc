@@ -25,6 +25,6 @@ public class Client {
     String numPermis;
     LocalDate dateInscription;
 
-    @OneToMany (mappedBy = "client")
+    @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     Set<Reservation> reservations = new HashSet<>();
 }

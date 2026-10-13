@@ -24,6 +24,6 @@ public class Agence {
   @OneToMany (mappedBy ="agence")
   Set<Vehicule> vehicules = new HashSet<>();
 
-  @OneToMany (mappedBy = "agence")
+  @OneToMany (mappedBy = "agence", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     Set <Employe>  employes = new HashSet<>();
 }

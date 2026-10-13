@@ -27,7 +27,7 @@ public class Vehicule {
     private BigDecimal tarifJournalier;
     @Enumerated(EnumType.STRING)
     private StatutVehicule statut;
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     private Agence agence;
     @ManyToMany
     Set<Equipement> equipements;

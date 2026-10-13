@@ -6,8 +6,8 @@ import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @Getter
@@ -32,7 +32,6 @@ public class Contrat {
 
 
 
-    @OneToMany (mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Builder.Default
-    Set<Paiement> paiements= new HashSet<>();
+    @OneToMany (mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Paiement> paiements=new ArrayList<>();
 }

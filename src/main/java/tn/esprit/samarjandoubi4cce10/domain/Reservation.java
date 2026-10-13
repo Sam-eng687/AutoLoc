@@ -21,10 +21,10 @@ public class Reservation {
     LocalDate dateFin;
     @Enumerated(EnumType.STRING)
     StatutReservation statut;
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     private Vehicule vehicule;
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     private Client client;
-    @OneToOne (mappedBy = "reservation")
+    @OneToOne (mappedBy = "reservation", fetch = FetchType.LAZY)
     private Contrat contrat;
 }
