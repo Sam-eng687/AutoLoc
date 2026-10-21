@@ -28,7 +28,7 @@ public class VehiculeRestController {
         return vehiculeService.findAll();
     }
     @PutMapping
-    public Vehicule update (@RequestBody Vehicule vehicule){
-        return vehiculeService.update(vehicule);
+    public Vehicule update (@RequestBody Vehicule v){
+        return vehiculeService.update(v);
     }
 }

@@ -24,8 +24,6 @@ public class Contrat {
     BigDecimal montantTotal;
     boolean valide;
 
-    @OneToOne (mappedBy = "contrat")
-    private Reservation reservation;
 
     @OneToOne (fetch = FetchType.LAZY)
     Reservation res;
