@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContratRestController {
     private final IContratService contratService;
+    @PostMapping
     public Contrat add(@RequestBody Contrat contrat){
         return contratService.create(contrat);
     }

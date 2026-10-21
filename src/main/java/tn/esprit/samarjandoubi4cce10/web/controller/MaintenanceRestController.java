@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MaintenanceRestController {
     private final IMaintenanceService maintenanceService;
+    @PostMapping
     public Maintenance add(@RequestBody Maintenance maintenance){
 
         return maintenanceService.create(maintenance);

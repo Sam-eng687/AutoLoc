@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EquipementRestController {
     private final IEquipementService equipementService;
+    @PostMapping
     public Equipement add(@RequestBody Equipement equipement){
         return equipementService.create(equipement);
     }

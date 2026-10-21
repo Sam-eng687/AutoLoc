@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeRestController {
     private final IEmployeService employeService;
+    @PostMapping
     public Employe add(@RequestBody Employe e){
         return employeService.create(e);
     }

@@ -12,6 +12,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AgenceRestController {
     private final IAgenceService agenceService;
+
+    @PostMapping
     public Agence add(@RequestBody Agence agence){
         return agenceService.create(agence);
     }

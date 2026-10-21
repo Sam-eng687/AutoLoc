@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PaiementRestController {
     private final IPaiementService paiementService;
+    @PostMapping
     public Paiement add(@RequestBody Paiement paiement){
 
         return paiementService.create(paiement);

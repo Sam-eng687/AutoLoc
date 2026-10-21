@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ReservationRestController {
     private final IReservationService reservationService;
+    @PostMapping
     public Reservation add(@RequestBody Reservation reservation){
         return reservationService.create(reservation);
     }

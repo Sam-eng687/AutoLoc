@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientRestController {
     private final IClientService clientService;
+    @PostMapping
     public Client add(@RequestBody Client client){
         return clientService.create(client);
     }
