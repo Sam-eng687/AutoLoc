@@ -8,7 +8,7 @@ import tn.esprit.samarjandoubi4cce10.service.IAgenceService;
 import java.util.List;
 
 @RestController
-@RequestMapping("Client")
+@RequestMapping("Agence")
 @RequiredArgsConstructor
 public class AgenceRestController {
     private final IAgenceService agenceService;
