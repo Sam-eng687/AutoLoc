@@ -28,4 +28,9 @@ public class ContratRestController {
     public Contrat update (@RequestBody Contrat c){
         return contratService.update(c);
     }
+    @PostMapping
+    public Contrat addWithPayments(Contrat contrat){
+        return contratService.addWithPayments(contrat);
+
+    }
 }

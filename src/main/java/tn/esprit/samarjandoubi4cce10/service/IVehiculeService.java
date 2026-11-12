@@ -6,8 +6,17 @@ import java.util.List;
 
 public interface IVehiculeService {
     Vehicule create(Vehicule v);
-    Vehicule findById (Long id);
+
+    Vehicule findById(Long id);
+
     List<Vehicule> findAll();
-    void deleteById (Long id);
+
+    void deleteById(Long id);
+
     Vehicule update(Vehicule vehicule);
+
+    Vehicule assignAgence(Long idVehicule, Long idAgence);
+    Vehicule assignEquipement (Long idVehicule, Long idEquipement);
+    void unassignEquipement (Long idVehicule, Long idEquipement);
+    Vehicule addAndAssignAgence (Vehicule vehicule, Long idAgence);
 }

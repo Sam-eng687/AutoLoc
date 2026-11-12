@@ -17,6 +17,6 @@ public class Equipement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idEquipement;
     String libelle;
-    @ManyToMany (mappedBy = "equipements")
+    @ManyToMany (mappedBy = "equipements", fetch = FetchType.LAZY)
     Set<Vehicule> vehicules;
 }

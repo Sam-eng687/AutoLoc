@@ -3,7 +3,9 @@ package tn.esprit.samarjandoubi4cce10.service.impls;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.samarjandoubi4cce10.domain.Contrat;
+import tn.esprit.samarjandoubi4cce10.domain.Paiement;
 import tn.esprit.samarjandoubi4cce10.repository.IContratRepository;
+import tn.esprit.samarjandoubi4cce10.repository.IPaiementRepository;
 import tn.esprit.samarjandoubi4cce10.service.IContratService;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContratServiceImpl implements IContratService {
     private final IContratRepository contratRepository;
+    private final IPaiementRepository paiementRepository;
 
     @Override
     public Contrat create(Contrat contrat) {
@@ -38,4 +41,16 @@ public class ContratServiceImpl implements IContratService {
     public Contrat update(Contrat c) {
         return contratRepository.save(c);
     }
+
+    @Override
+    public Contrat addWithPayments(Contrat contrat) {
+        Contrat newContrat = contratRepository.save(contrat);
+        for (Paiement paiement : contrat.getPaiements()) {
+            paiement = paiementRepository.save(paiement);
+            paiement.setContrat(newContrat);
+        }
+        return contratRepository.save(contrat);
+    }
+
+
 }

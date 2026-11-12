@@ -24,6 +24,9 @@ public class Client {
     String telephone;
     String numPermis;
     LocalDate dateInscription;
+    @Enumerated (EnumType.STRING)
+    TypeClient typeClient;
+
 
     @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     Set<Reservation> reservations = new HashSet<>();

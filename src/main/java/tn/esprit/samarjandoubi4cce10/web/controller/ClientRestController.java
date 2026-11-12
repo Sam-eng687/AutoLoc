@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("Client")
 @RequiredArgsConstructor
 public class ClientRestController {
+
     private final IClientService clientService;
     @PostMapping
     public Client add(@RequestBody Client client){

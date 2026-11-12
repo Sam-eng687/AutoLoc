@@ -1,9 +1,16 @@
 package tn.esprit.samarjandoubi4cce10.service.impls;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
+import tn.esprit.samarjandoubi4cce10.domain.Agence;
+import tn.esprit.samarjandoubi4cce10.domain.Equipement;
 import tn.esprit.samarjandoubi4cce10.domain.Vehicule;
+import tn.esprit.samarjandoubi4cce10.repository.IAgenceRepository;
+import tn.esprit.samarjandoubi4cce10.repository.IEquipementRepository;
 import tn.esprit.samarjandoubi4cce10.repository.IVehiculeRepository;
+import tn.esprit.samarjandoubi4cce10.service.IEquipementService;
 import tn.esprit.samarjandoubi4cce10.service.IVehiculeService;
 
 import java.util.List;
@@ -14,6 +21,8 @@ import java.util.List;
 public class VehiculeServiceImpl implements IVehiculeService {
 
     private final IVehiculeRepository vehiculeRepository;
+    private final IAgenceRepository agenceRepository;
+    private final IEquipementRepository equipementRepository;
 
 
     @Override
@@ -41,4 +50,41 @@ public class VehiculeServiceImpl implements IVehiculeService {
     public Vehicule update(Vehicule vehicule) {
         return vehiculeRepository.save(vehicule);
     }
+
+    @Override
+    public Vehicule assignAgence(Long idVehicule, Long idAgence) {
+        Vehicule vehicule = findById(idVehicule);
+        Agence agence = agenceRepository.findById(idAgence).orElseThrow(()->new RuntimeException("Agence Not Found"));
+        vehicule.setAgence(agence);
+
+        return vehiculeRepository.save(vehicule);
+    }
+
+    @Override
+    public Vehicule assignEquipement(Long idVehicule, Long idEquipement) {
+        Vehicule vehicule = findById(idVehicule);
+        Equipement equipement = equipementRepository.findById(idEquipement).orElseThrow(()->new RuntimeException("Equipement Not Found"));
+        vehicule.getEquipements().add(equipement);
+        return vehiculeRepository.save(vehicule);
+    }
+
+    @Override
+    public void unassignEquipement(Long idVehicule, Long idEquipement) {
+        Vehicule vehicule = findById(idVehicule);
+        Equipement equipement = equipementRepository.findById(idEquipement).orElseThrow(()->new RuntimeException("Equipement Not Found"));
+        vehicule.getEquipements().remove(equipement);
+        vehiculeRepository.save(vehicule);
+
+    }
+
+    @Transactional
+    @Override
+    public Vehicule addAndAssignAgence(Vehicule vehicule, Long idAgence) {
+        Agence agence = agenceRepository.findById(idAgence).orElseThrow(()->new RuntimeException("Agence Not Found"));
+        vehicule.setAgence(agence);
+
+        return vehiculeRepository.save(vehicule);
+    }
+
+
 }
