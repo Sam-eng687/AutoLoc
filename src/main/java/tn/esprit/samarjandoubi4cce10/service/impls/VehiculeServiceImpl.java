@@ -12,7 +12,9 @@ import tn.esprit.samarjandoubi4cce10.repository.IEquipementRepository;
 import tn.esprit.samarjandoubi4cce10.repository.IVehiculeRepository;
 import tn.esprit.samarjandoubi4cce10.service.IEquipementService;
 import tn.esprit.samarjandoubi4cce10.service.IVehiculeService;
+import tn.esprit.samarjandoubi4cce10.web.dto.VehiculeDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -36,8 +38,24 @@ public class VehiculeServiceImpl implements IVehiculeService {
     }
 
     @Override
-    public List<Vehicule> findAll() {
-        return vehiculeRepository.findAll();
+    public List<VehiculeDTO> findAll() {
+        List<VehiculeDTO> vehiculeDTOS = new ArrayList<>();
+        for (Vehicule vehicule : vehiculeRepository.findAll()){
+            vehiculeDTOS.add(toDTO(vehicule));
+        }
+        return vehiculeDTOS;
+    }
+
+    @Override
+    public VehiculeDTO toDTO(Vehicule vehicule) {
+        VehiculeDTO vehiculeDTO= new VehiculeDTO();
+        vehiculeDTO.setImmatriculation(vehicule.getImmatriculation());
+        vehiculeDTO.setCategorie(vehicule.getCategorie());
+        vehiculeDTO.setMarque(vehicule.getMarque());
+        vehiculeDTO.setTarifJournalier(vehicule.getTarifJournalier());
+        vehiculeDTO.setModel(vehicule.getModel());
+        vehiculeDTO.setNomAgence(vehicule.getAgence().getNom());
+        return null;
     }
 
     @Override

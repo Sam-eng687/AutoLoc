@@ -1,6 +1,7 @@
 package tn.esprit.samarjandoubi4cce10.service;
 
 import tn.esprit.samarjandoubi4cce10.domain.Vehicule;
+import tn.esprit.samarjandoubi4cce10.web.dto.VehiculeDTO;
 
 import java.util.List;
 
@@ -9,7 +10,8 @@ public interface IVehiculeService {
 
     Vehicule findById(Long id);
 
-    List<Vehicule> findAll();
+    List<VehiculeDTO> findAll();
+    VehiculeDTO toDTO (Vehicule vehicule);
 
     void deleteById(Long id);
 

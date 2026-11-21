@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.samarjandoubi4cce10.domain.Vehicule;
 import tn.esprit.samarjandoubi4cce10.service.impls.VehiculeServiceImpl;
+import tn.esprit.samarjandoubi4cce10.web.dto.VehiculeDTO;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class VehiculeRestController {
     }
 
     @GetMapping
-    public List<Vehicule> getVehicule() {
+    public List<VehiculeDTO> findAll() {
         return vehiculeService.findAll();
     }
 
