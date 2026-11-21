@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContratRestController {
     private final IContratService contratService;
-    @PostMapping
+    @PostMapping("/add")
     public Contrat add(@RequestBody Contrat contrat){
         return contratService.create(contrat);
     }
@@ -28,7 +28,7 @@ public class ContratRestController {
     public Contrat update (@RequestBody Contrat c){
         return contratService.update(c);
     }
-    @PostMapping
+    @PostMapping("/addWithPayments")
     public Contrat addWithPayments(Contrat contrat){
         return contratService.addWithPayments(contrat);
 
