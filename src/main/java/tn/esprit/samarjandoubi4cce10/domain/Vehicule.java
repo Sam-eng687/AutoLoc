@@ -6,7 +6,6 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,7 +29,7 @@ public class Vehicule {
     @ManyToOne (fetch = FetchType.LAZY)
     private Agence agence;
     @ManyToMany
-    Set<Equipement> equipements;
+    Set<Equipement> equipements = new HashSet<>();   // <- only change
     @OneToMany (mappedBy = "vehicule")
     Set<Reservation> reservations = new HashSet<>();
 
